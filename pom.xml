@@ -8,7 +8,13 @@
 	<packaging>pom</packaging>
 	<name>Spring Boot Samples</name>
 	<description>Spring Boot Samples</description>
-	<url>http://projects.spring.io/spring-boot/</url>
+	<url>http://github.com/pragmatico/spring-boot-samples</url>
+
+	<parent>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-parent</artifactId>
+		<version>Brixton.M3</version>
+	</parent>
 
 	<organization>
 		<name>Pivotal Software, Inc.</name>
@@ -26,6 +32,7 @@
 	<modules>
 		<module>lombok</module>
 		<module>jasypt</module>
+		<module>feign</module>
 	</modules>
 
     <dependencyManagement>
