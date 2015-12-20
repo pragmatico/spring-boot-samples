@@ -25,6 +25,7 @@
 
 	<modules>
 		<module>lombok</module>
+		<module>jasypt</module>
 	</modules>
 
     <dependencyManagement>

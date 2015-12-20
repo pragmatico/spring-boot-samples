@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/lombok/demo.iml" filepath="$PROJECT_DIR$/lombok/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jasypt/jasypt.iml" filepath="$PROJECT_DIR$/jasypt/jasypt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lombok/lombok.iml" filepath="$PROJECT_DIR$/lombok/lombok.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-boot-samples.iml" filepath="$PROJECT_DIR$/spring-boot-samples.iml" />
     </modules>
   </component>
