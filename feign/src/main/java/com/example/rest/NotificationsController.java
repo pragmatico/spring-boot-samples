@@ -19,7 +19,8 @@ public class NotificationsController {
     @ResponseStatus(HttpStatus.OK)
     public String processNotification(@RequestBody String payload,
                                       @PathVariable(value = "type") String type) {
-        LOGGER.info(type + " notification received. Content: " + payload);
-        return "received!!!";
+        throw new UnsupportedOperationException();
+        //LOGGER.info(type + " notification received. Content: " + payload);
+        //return "received!!!";
     }
 }
