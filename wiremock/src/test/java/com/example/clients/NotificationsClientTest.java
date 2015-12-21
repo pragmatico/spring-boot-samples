@@ -30,36 +30,38 @@ public class NotificationsClientTest {
     @Rule
     public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().port(9000));
 
+    private final String NOTIFICATIONS_ENDPOINT = "/notifications/test";
+
     @Test
     public void testSend_notification() {
-        stubFor(post(urlEqualTo("/notifications/test"))
+        stubFor(post(urlEqualTo(NOTIFICATIONS_ENDPOINT))
             .willReturn(aResponse()
                 .withHeader("Content-Type", "application/json")));
 
         notificationsClient.publish("test", "test data");
-        verify(1, postRequestedFor(urlEqualTo("/notifications/test")));
+        verify(1, postRequestedFor(urlEqualTo(NOTIFICATIONS_ENDPOINT)));
     }
 
     @Test(expected = HystrixRuntimeException.class)
     public void testSend_notification_timeout() {
-        stubFor(post(urlEqualTo("/notifications/test"))
+        stubFor(post(urlEqualTo(NOTIFICATIONS_ENDPOINT))
                 .willReturn(aResponse()
                         .withStatus(200)
                         .withHeader("Content-Type", "application/json")
                         .withFixedDelay(6000)));
 
         notificationsClient.publish("test", "test data");
-        verify(1, postRequestedFor(urlEqualTo("/notifications/test")));
+        verify(1, postRequestedFor(urlEqualTo(NOTIFICATIONS_ENDPOINT)));
     }
 
     @Test(expected = HystrixRuntimeException.class)
     public void testSend_notification_not_found() {
-        stubFor(post(urlEqualTo("/notifications/test"))
+        stubFor(post(urlEqualTo(NOTIFICATIONS_ENDPOINT))
                 .willReturn(aResponse()
                         .withStatus(404)
                         .withHeader("Content-Type", "application/json")));
 
         notificationsClient.publish("test", "test data");
-        verify(1, postRequestedFor(urlEqualTo("/notifications/test")));
+        verify(1, postRequestedFor(urlEqualTo(NOTIFICATIONS_ENDPOINT)));
     }
 }
