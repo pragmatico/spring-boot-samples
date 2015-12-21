@@ -1,7 +1,7 @@
 package com.example.rest;
 
 
-import com.example.clients.NotificationsClient;
+import com.example.services.NotificationsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +20,11 @@ public class NotificationsClientController {
     private static final Logger LOGGER = LogManager.getLogger(NotificationsClientController.class);
 
     @Autowired
-    private NotificationsClient notificationsClient;
+    private NotificationsService notificationsService;
 
     @RequestMapping("/publish")
-    public String sendNotification() {
-
-        return notificationsClient.publish("test", "test data!!!");
-
+    public void sendNotification() {
+        notificationsService.sendNotification("test", "test data!!!");
     }
 
 }
