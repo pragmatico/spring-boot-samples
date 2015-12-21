@@ -18,9 +18,9 @@ public class NotificationsController {
     @RequestMapping(value = "/{type}", method = RequestMethod.POST, consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public String processNotification(@RequestBody String payload,
-                                      @PathVariable(value = "type") String type) {
-        throw new UnsupportedOperationException();
-        //LOGGER.info(type + " notification received. Content: " + payload);
-        //return "received!!!";
+                                      @PathVariable(value = "type") String type) throws InterruptedException {
+        Thread.sleep(5000);
+        LOGGER.info(type + " notification received. Content: " + payload);
+        return "received!!!";
     }
 }

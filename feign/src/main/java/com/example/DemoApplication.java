@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = {"com.example.clients"})
+@EnableFeignClients(basePackages = {"com.example.clients"}, defaultConfiguration = {})
 public class DemoApplication {
 
     public static void main(String[] args) {
