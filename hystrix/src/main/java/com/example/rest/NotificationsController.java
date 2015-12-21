@@ -20,7 +20,6 @@ public class NotificationsController {
     public String processNotification(@RequestBody String payload,
                                     @PathVariable(value = "type") String type) throws InterruptedException {
         Thread.sleep(6000L);
-        //throw new UnsupportedOperationException();
         LOGGER.info(type + " notification received. Content: " + payload);
         return "received!!!";
     }

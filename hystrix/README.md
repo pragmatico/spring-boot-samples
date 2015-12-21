@@ -1,11 +1,11 @@
-# feign
+# hystrix
 
 
-Example of a declarative REST client using Feign, the example also uses Ribbon as client load balancer to define the list of http endpoints of the server (in this example, ribbon is used without eureka)
+Example of a Hystrix circuit breaker, there is a 1st sample of hystrix in a sync call and a 2nd example where hystrix is used in an async call.
 
-[more info about feign in spring-boot](http://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-feign)
+[Hystrix config properties](https://github.com/Netflix/Hystrix/wiki/Configuration)
 
-[more info about ribbon in spring-boot](http://projects.spring.io/spring-cloud/spring-cloud.html#spring-cloud-ribbon-without-eureka)
+[ribbon docs](https://github.com/Netflix/ribbon/wiki)
 
-
+[feign docs](https://github.com/Netflix/feign)
 
