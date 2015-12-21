@@ -34,6 +34,7 @@
 		<module>jasypt</module>
 		<module>feign</module>
 		<module>hystrix</module>
+		<module>wiremock</module>
 	</modules>
 
     <dependencyManagement>
