@@ -1,6 +1,10 @@
 package com.example.rest;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -9,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TaskController {
 
-    @RequestMapping("/process")
-    public String process() throws InterruptedException {
-        long startTime = System.currentTimeMillis();
-        long elapsedTime = System.currentTimeMillis() - startTime;
-        return "elapsedTime = " + elapsedTime;
+    @RequestMapping(value = "/task", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public Task process() {
+        Task task = new Task();
+        return task;
     }
 }
