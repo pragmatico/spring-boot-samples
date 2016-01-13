@@ -36,6 +36,7 @@
 		<module>hystrix</module>
 		<module>wiremock</module>
 		<module>async</module>
+		<module>java-time</module>
 	</modules>
 
     <dependencyManagement>

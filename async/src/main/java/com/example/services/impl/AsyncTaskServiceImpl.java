@@ -16,9 +16,24 @@ public class AsyncTaskServiceImpl implements TaskService {
 
     @Async
     @Override
-    public Future<Void> process(String data) throws InterruptedException {
-        Thread.sleep(5000L);
+    public Future<Void> processAsync(String data) {
+        try {
+            Thread.sleep(5000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException();
+        }
         LOGGER.info("processing done!!!");
         return new AsyncResult<Void>(null);
+    }
+
+    @Override
+    public String processSync(String data) {
+        try {
+            Thread.sleep(5000L);
+        } catch (InterruptedException e) {
+            throw new RuntimeException();
+        }
+        LOGGER.info("processing done!!!");
+        return "data_processed";
     }
 }
