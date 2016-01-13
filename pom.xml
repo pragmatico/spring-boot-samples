@@ -35,6 +35,7 @@
 		<module>feign</module>
 		<module>hystrix</module>
 		<module>wiremock</module>
+		<module>async</module>
 	</modules>
 
     <dependencyManagement>
