@@ -16,3 +16,12 @@ Calling a sync method in a different thread (making the caller async)
 ## DeferredResult/CompletableFuture - Consumed Async
 
 Calling a sync method with CompletableFuture (making the caller async)
+
+
+
+
+---------
+References:
+
+- http://callistaenterprise.se/blogg/teknik/2014/04/22/c10k-developing-non-blocking-rest-services-with-spring-mvc/
+- http://xpadro.blogspot.co.uk/2015/07/understanding-callable-and-spring.html
