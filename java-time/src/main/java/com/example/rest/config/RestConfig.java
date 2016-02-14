@@ -8,7 +8,6 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Configuration
 public class RestConfig {
