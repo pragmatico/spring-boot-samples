@@ -1,6 +1,8 @@
 package com.example.rest;
 
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +16,8 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
 public class TaskController {
+
+    private static final Logger LOG = LogManager.getLogger(TaskController.class);
 
     @ResponseStatus(OK)
     @RequestMapping(value = "/tasks", method = GET, produces = APPLICATION_JSON_VALUE)
