@@ -36,6 +36,7 @@
 		<module>hystrix</module>
 		<module>wiremock</module>
 		<module>async</module>
+		<module>rest-test</module>
 	</modules>
 
     <dependencyManagement>
