@@ -1,42 +1,41 @@
 package com.example.rest;
 
-import com.example.DemoApplicationTests;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockServletContext;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.server.MockMvc;
 import org.springframework.test.web.server.MvcResult;
-import org.springframework.web.context.WebApplicationContext;
+import org.springframework.test.web.server.setup.MockMvcBuilders;
 
-import static org.springframework.test.web.server.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.server.setup.MockMvcBuilders.webApplicationContextSetup;
 import static org.springframework.test.web.server.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.server.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.server.result.MockMvcResultMatchers.status;
 
-/**
- * Test that starts the entire app context
- */
-public class TaskControllerTest extends DemoApplicationTests {
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringApplicationConfiguration(classes = MockServletContext.class)
+@WebAppConfiguration
+public class TaskControllerOnlyTest {
 
-    private static final Logger LOGGER = LogManager.getLogger(TaskControllerTest.class);
+    private static final Logger LOGGER = LogManager.getLogger(TaskControllerOnlyTest.class);
 
-    @Autowired
-    protected WebApplicationContext wac; // cached
-
-    protected MockMvc mockMvc;
+    private MockMvc mvc;
 
     @Before
-    public void setup() {
-        this.mockMvc = webApplicationContextSetup(this.wac).build();
+    public void setUp() throws Exception {
+        mvc = MockMvcBuilders.standaloneSetup(new TaskController()).build();
     }
 
     @Test
     public void getTasks() throws Exception {
-        MvcResult result = mockMvc.perform(get("/tasks")
+        MvcResult result = mvc.perform(get("/tasks")
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -46,5 +45,4 @@ public class TaskControllerTest extends DemoApplicationTests {
 
         LOGGER.info("\n\nRESPONSE = " + result.getResponse().getContentAsString() + "\n");
     }
-
 }
