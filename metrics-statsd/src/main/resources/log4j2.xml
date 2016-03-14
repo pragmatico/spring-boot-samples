@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p %d [%t] %c: %X{cid} %m%n"/>
+        </Console>
+        <!-- Async Loggers will auto-flush in batches, so switch off immediateFlush. -->
+        <!--<RandomAccessFile name="RandomAccessFile" fileName="./logs/test.log" immediateFlush="false" append="false">
+            <PatternLayout>
+                <Pattern>%-5p %d [%t] %c: %X{cid} %m%n</Pattern>
+            </PatternLayout>
+        </RandomAccessFile>-->
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <!--<AppenderRef ref="RandomAccessFile"/>-->
+        </Root>
+    </Loggers>
+</Configuration>
