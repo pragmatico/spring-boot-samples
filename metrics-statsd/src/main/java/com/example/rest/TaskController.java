@@ -2,6 +2,7 @@ package com.example.rest;
 
 
 import com.codahale.metrics.annotation.Timed;
+import com.example.metrics.MetricsCounterService;
 import com.example.metrics.TimerMetricWriter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,6 +27,9 @@ public class TaskController {
     @Autowired
     private TimerMetricWriter timerMetricWriter;
 
+    @Autowired
+    private MetricsCounterService metricsCounterService;
+
     @Timed(absolute = true, name = "tasks")
     @ResponseStatus(OK)
     @RequestMapping(value = "/tasks", method = GET, produces = APPLICATION_JSON_VALUE)
@@ -35,8 +39,11 @@ public class TaskController {
         tasks.put("task1", "Build project");
         tasks.put("task2", "Deploy app to environment");
 
-
+        // timer metric writer that accepts lambda as parameter
         timerMetricWriter.time("test.timer.create.hashmap", () -> new HashMap<>());
+
+        // sample of a count service
+        metricsCounterService.exampleMethod();
 
         return tasks;
     }
