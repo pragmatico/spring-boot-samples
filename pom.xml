@@ -40,6 +40,7 @@
         <module>rest</module>
         <module>rest-test</module>
         <module>metrics-statsd</module>
+        <module>hibernate-validation</module>
     </modules>
 
     <dependencyManagement>
