@@ -23,6 +23,8 @@ List of tasks:
 
 > curl -X POST -H "Content-Type:application/json" http://localhost:8080/upload -d "{ \"list\": [{ \"units\": \"-1\" }]}"
 
+---
+
 
 For more info about hibernate-validate, please refer to official documentation:
 
