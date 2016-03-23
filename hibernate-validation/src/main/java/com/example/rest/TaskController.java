@@ -1,11 +1,10 @@
 package com.example.rest;
 
 
+import com.example.common.ValidatableBeanList;
 import com.example.domain.Task;
-import com.example.domain.Tasks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -60,7 +58,7 @@ public class TaskController {
      */
     @ResponseStatus(CREATED)
     @RequestMapping(value = "/upload", method = POST, consumes = APPLICATION_JSON_VALUE)
-    public void createTask(@RequestBody @Valid Tasks tasks) throws InterruptedException {
+    public void createTask(@RequestBody @Valid ValidatableBeanList<Task> tasks) throws InterruptedException {
         LOGGER.info("Uploading tasks...");
         Thread.sleep(500);
     }
