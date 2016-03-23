@@ -5,7 +5,7 @@ Sample that validates the request of a REST operation using hibernate-validator 
 There are 2 samples
 - one to validate a request which is a POJO
 - another to validate a request which is a list of POJOs, @Valid doesn't work in paramenters
-that are Iterable and the example is using a wrapper for the list
+that are Iterable and the example is using a generic wrapper for the list
 
 ---
 
