@@ -1,10 +1,12 @@
 package com.example.domain;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+@Validated
 public class Task {
 
     @NotEmpty(message = "Name can not be empty")

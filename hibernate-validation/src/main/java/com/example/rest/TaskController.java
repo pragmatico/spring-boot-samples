@@ -2,8 +2,10 @@ package com.example.rest;
 
 
 import com.example.domain.Task;
+import com.example.domain.Tasks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.springframework.http.HttpStatus.CREATED;
@@ -35,10 +38,30 @@ public class TaskController {
         return tasks;
     }
 
+    /**
+     * Uses hibernate annotations to validate request
+     * @param task
+     * @throws InterruptedException
+     */
     @ResponseStatus(CREATED)
     @RequestMapping(value = "/tasks", method = POST, consumes = APPLICATION_JSON_VALUE)
     public void createTask(@RequestBody @Valid Task task) throws InterruptedException {
         LOGGER.info("Creating task...");
+        Thread.sleep(500);
+    }
+
+    /**
+     * POJOs with hibernate annotations are not validated when they are in a List
+     * This example is using a wrapper for the List<Task> to validate the elements
+     * of the list
+     *
+     * @param tasks
+     * @throws InterruptedException
+     */
+    @ResponseStatus(CREATED)
+    @RequestMapping(value = "/upload", method = POST, consumes = APPLICATION_JSON_VALUE)
+    public void createTask(@RequestBody @Valid Tasks tasks) throws InterruptedException {
+        LOGGER.info("Uploading tasks...");
         Thread.sleep(500);
     }
 }
