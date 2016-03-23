@@ -9,7 +9,7 @@
 		<groupId>com.example</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>rest</artifactId>
+	<artifactId>hibernate-validation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
