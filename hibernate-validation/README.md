@@ -1,6 +1,9 @@
-### Sample testing REST interfaces
+### Sample request validation using hibernate validator 303
 
 Sample that validates the request of a REST operation using hibernate-validator in spring boot.
+
+Hibernate validator docs: http://hibernate.org/validator/
+
 
 There are 2 samples
 - one to validate a request which is a POJO
