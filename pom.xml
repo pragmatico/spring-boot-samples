@@ -41,6 +41,7 @@
         <module>rest-test</module>
         <module>metrics-statsd</module>
         <module>hibernate-validation</module>
+        <module>swagger</module>
     </modules>
 
     <dependencyManagement>
