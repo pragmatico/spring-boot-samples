@@ -1,6 +1,7 @@
 package com.example.rest;
 
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -17,6 +18,7 @@ import static org.springframework.http.HttpStatus.OK;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
+@Api(description = "task operations")
 @RestController
 public class TaskController {
 
