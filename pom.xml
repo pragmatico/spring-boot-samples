@@ -42,6 +42,7 @@
         <module>metrics-statsd</module>
         <module>hibernate-validation</module>
         <module>swagger</module>
+        <module>spring-cloud-aws-s3</module>
     </modules>
 
     <dependencyManagement>
